@@ -7,8 +7,8 @@ import (
 func main() {
 
 	d := newDeck() // Ensure the function call is newDeck
-	//var d1, d2 deck
-	d1, _ := deal2(d, 5)
+
+	d1, _ := deal(d, 5)
 	//d.print()
 	d1.print()
 	//d2.print()
@@ -21,9 +21,11 @@ func main() {
 	fmt.Println(appenddesck)
 	fmt.Println([]byte(appenddesck))
 
-	d.saveTofile("deck.txt")
+	d.saveToFile("deck.txt")
 
-	readFiledeck := NewdeckFromFile("deck.txt")
+	readFiledeck := newDeckFromFile("deck.txt")
 	readFiledeck.print()
+	d.shffle()
+	d.print()
 
 }

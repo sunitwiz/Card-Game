@@ -18,6 +18,7 @@ go fmt "hello world.go"   //formats the code syntax
 go install "hello world.go"  //installs the code
 go get "hello world.go"   //downloads the code
 go test "hello world.go"   //tests the code
+go test   //to test
 
 
 incase of multiple go files we need to create go.mod file
@@ -100,6 +101,7 @@ fmt.Println(card)  //default value is an empty string
 
 func processArray(num int, arr []int) []int {     
     // Example: Append num to the array and return it
+    // we can return multiple values in Golang
     arr = append(arr, num)
     return arr
 }
@@ -123,6 +125,25 @@ myMap := map[string]int{"a": 1, "b": 2, "c": 3}
 for key, value := range myMap {                     //every variable declaredneed to be used , if not used it will throw an error
     fmt.Println("Key:", key, "Value:", value)        //we can write _,value if we dont want to use the key
 }
+
+
+
+
+type Car struct {
+    Brand string
+    Year  int
+}
+
+cars := Car{} // ✅ Valid: Creates an empty struct
+numbers := []int{}    // ✅ Valid: Creates an empty slice
+scores := [3]int{}    // ✅ Valid: Creates an array with default values (0,0,0)
+grades := map[string]int{} // ✅ Valid: Creates an empty map
+type deck []string
+cards := deck{} // ✅ Valid: Creates an empty slice of type deck
+
+
+cars := int{} // ❌ Invalid: You cannot initialize a primitive type like this
+
 
 
 
@@ -202,5 +223,39 @@ func main() {
     cards := deck{"Ace", "King", "Queen"}
     cards.print()  // Calls the method
 }
+
+
+
+
+
+9.os package 
+to read and file 
+
+
+10. Test cases
+func TestNewDeck(t *testing.T) {   //testing.T is a struct provided by Go’s built-in testing package.
+	d := newDeck()
+	if len(d) != 52 {
+		t.Errorf("Expected deck length of 52, but got %v", len(b))    //%v tells Go to print the value of the variable in its default format.
+	}
+
+}  
+
+
+t.Log(msg)	Logs a message (useful for debugging).
+t.Errorf(format, args...)	Logs an error but continues execution.
+t.Fatalf(format, args...)	Logs an error and stops execution.
+t.Fail()	Marks test as failed but continues execution.
+t.FailNow()	Marks test as failed and stops execution.
+t.Skip(msg)	Skips the test with a message.
+
+How *testing.T is Used in Tests
+In Go, test functions:
+
+Must be in a _test.go file.
+Must start with Test and take t *testing.T as a parameter.
+
+
+ 
 
 

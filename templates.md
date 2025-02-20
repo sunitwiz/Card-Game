@@ -115,7 +115,9 @@ slice = append(slice,  20, 30)
 fmt.Println(slice)   // Output: [10 20 30]
 
 
-slice := []int{1, 2, 3}   //I w ill define
+slice := []int{1, 2, 3}   //I will define
+var slice []int         //I will declare for empty
+
 
 myMap := map[string]int{"a": 1, "b": 2, "c": 3}
 for key, value := range myMap {                     //every variable declaredneed to be used , if not used it will throw an error

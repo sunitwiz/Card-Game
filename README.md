@@ -6,5 +6,3 @@
 6.New Deck form cards====>Load a list of cards from local machine
 
 
-1. Deck type
-

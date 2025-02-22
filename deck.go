@@ -52,7 +52,7 @@ func newDeckFromFile(filename string) deck {
 
 }
 
-func (d deck) shffle() {
+func (d deck) shuffle() {
 	source := rand.NewSource(time.Now().UnixNano())
 	r := rand.New(source)
 	for i := range d {

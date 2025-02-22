@@ -20,7 +20,8 @@ go get "hello world.go"   //downloads the code
 go test "hello world.go"   //tests the code
 go test   //to test
 
-
+to install agit package 
+go get github.com/gofrs/uuid
 incase of multiple go files we need to create go.mod file
 
 ✅ 1. Initialize a Go Module
@@ -61,6 +62,20 @@ Inheritance	❌ No classical inheritance, uses composition
  Abstraction	✅ Supported via interfaces
 Method Overloading	❌ Not supported (methods must have unique names)
  Operator Overloading	❌ Not supported
+
+
+
+
+Data Type	Passed By	Behavior
+int, float, bool, string->Value	->Copy is passed, no effect on original ❌
+Struct->	Value->	Copy is passed, no effect on original ❌
+Slice->	Value->	Copy of slice header is passed; modifies original array unless resized  ✅ <-> ❌
+Map->	Value	->Copy of map header is passed; modifies original data✅
+Channel	->Value->	Copy of channel descriptor is passed; both can send/receive
+Pointer	->Value	->Copy of pointer is passed; modifies original data ✅
+
+
+
 
 
 package main           //this defines it will create a executable fie
@@ -254,6 +269,58 @@ In Go, test functions:
 
 Must be in a _test.go file.
 Must start with Test and take t *testing.T as a parameter.
+
+
+
+
+
+11. Structure and Maps
+
+default values:
+string ""
+int 0
+bool false
+float 0
+
+type person struct {
+	firstName string
+	lastName  string
+	contact   contactInfo
+}
+
+type contactInfo struct {
+	email   string
+	zipCode int
+}
+
+    var alex person
+	alex.firstName = "Alex"
+	alex.lastName = "Anderson"
+	fmt.Println(alex)     //{Alex Anderson}
+     fmt.Printf("%+v", alex)  //   {firstName:Alex lastName:Anderson}
+
+    alex := person{}
+
+
+
+    jim := person{
+		firstName: "Jim",
+		lastName:  "Party",
+		contact: contactInfo{
+			email:   "jim_anderson@gmail.com",
+			zipCode: 94000,
+		},
+	}
+
+
+
+
+
+
+
+
+   
+
 
 
  
